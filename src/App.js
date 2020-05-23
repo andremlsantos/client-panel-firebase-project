@@ -7,6 +7,7 @@ import Dashboard from "../src/components/layout/Dashboard";
 import AddClient from "./components/clients/AddClient";
 import { store, rrfProps } from "./store";
 import "./App.css";
+import ClientDetails from "./components/clients/ClientDetails";
 
 function App() {
     return (
@@ -26,6 +27,11 @@ function App() {
                                     exact
                                     path="/client/add"
                                     component={AddClient}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/client/:id"
+                                    component={ClientDetails}
                                 ></Route>
                             </Switch>
                         </div>
