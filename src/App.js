@@ -1,12 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-import {
-    ReactReduxFirebaseProvider,
-    firebaseReducer,
-} from "react-redux-firebase";
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 import AppNavbar from "../src/components/layout/AppNavbar";
 import Dashboard from "../src/components/layout/Dashboard";
+import AddClient from "./components/clients/AddClient";
 import { store, rrfProps } from "./store";
 import "./App.css";
 
@@ -23,6 +21,11 @@ function App() {
                                     exact
                                     path="/"
                                     component={Dashboard}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/client/add"
+                                    component={AddClient}
                                 ></Route>
                             </Switch>
                         </div>
