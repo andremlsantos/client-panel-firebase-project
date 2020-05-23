@@ -8,6 +8,7 @@ import AddClient from "./components/clients/AddClient";
 import { store, rrfProps } from "./store";
 import "./App.css";
 import ClientDetails from "./components/clients/ClientDetails";
+import EditClient from "./components/clients/EditClient";
 
 function App() {
     return (
@@ -32,6 +33,11 @@ function App() {
                                     exact
                                     path="/client/:id"
                                     component={ClientDetails}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/client/edit/:id"
+                                    component={EditClient}
                                 ></Route>
                             </Switch>
                         </div>
