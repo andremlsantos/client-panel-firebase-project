@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 
 class AddClient extends Component {
     state = {
-        firstName: "a",
+        firstName: "",
         lastName: "",
         email: "",
         phone: "",
