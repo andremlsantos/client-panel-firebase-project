@@ -10,6 +10,7 @@ import "./App.css";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import Settings from "./components/settings/Settings";
 import {
     UserIsAuthenticated,
@@ -51,6 +52,11 @@ function App() {
                                     exact
                                     path="/login"
                                     component={UserIsNotAuthenticated(Login)}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/register"
+                                    component={UserIsNotAuthenticated(Register)}
                                 ></Route>
                                 <Route
                                     exact
