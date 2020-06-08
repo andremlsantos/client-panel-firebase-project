@@ -10,6 +10,10 @@ import "./App.css";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
+import {
+    UserIsAuthenticated,
+    UserIsNotAuthenticated,
+} from "../src/helpers/auth";
 
 function App() {
     return (
@@ -23,27 +27,29 @@ function App() {
                                 <Route
                                     exact
                                     path="/"
-                                    component={Dashboard}
+                                    component={UserIsAuthenticated(Dashboard)}
                                 ></Route>
                                 <Route
                                     exact
                                     path="/client/add"
-                                    component={AddClient}
+                                    component={UserIsAuthenticated(AddClient)}
                                 ></Route>
                                 <Route
                                     exact
                                     path="/client/:id"
-                                    component={ClientDetails}
+                                    component={UserIsAuthenticated(
+                                        ClientDetails
+                                    )}
                                 ></Route>
                                 <Route
                                     exact
                                     path="/client/edit/:id"
-                                    component={EditClient}
+                                    component={UserIsAuthenticated(EditClient)}
                                 ></Route>
                                 <Route
                                     exact
                                     path="/login"
-                                    component={Login}
+                                    component={UserIsNotAuthenticated(Login)}
                                 ></Route>
                             </Switch>
                         </div>
