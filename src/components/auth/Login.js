@@ -6,6 +6,8 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
 import PropTypes from "prop-types";
+import { notifyUser } from "../../actions/notifyActions";
+import Alert from "../layout/Alert";
 
 class Login extends Component {
     state = {
@@ -23,7 +25,7 @@ class Login extends Component {
         debugger;
         e.preventDefault();
 
-        const { firebase } = this.props;
+        const { firebase, notifyUser } = this.props;
         const { email, password } = this.state;
 
         firebase
@@ -32,16 +34,25 @@ class Login extends Component {
                 password,
             })
             .catch((e) => {
-                alert("Invalid credentials");
+                notifyUser("Invalid login credentials", "Error");
             });
     };
 
     render() {
+        const { message, messageType } = this.props.notify;
+
         return (
             <div className="row">
                 <div className="cold-md-6 mx-auto">
                     <div className="card">
                         <div className="card-body">
+                            {message ? (
+                                <Alert
+                                    message={message}
+                                    messageType={messageType}
+                                ></Alert>
+                            ) : null}
+
                             <h1 className="text-center pb-4 pt-3">
                                 <span className="text-primary">
                                     <i className="fas fa-lock">Login</i>
@@ -88,4 +99,12 @@ Login.propTypes = {
     firebase: PropTypes.object.isRequired,
 };
 
-export default firebaseConnect()(Login);
+export default compose(
+    firebaseConnect(),
+    connect(
+        (state, props) => ({
+            notify: state.notify,
+        }),
+        { notifyUser }
+    )
+)(Login);
