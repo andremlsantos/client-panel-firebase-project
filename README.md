@@ -26,9 +26,8 @@ npm start
 
 ## Built With
 
--   [React](https://expressjs.com/) -
--   [Redux](https://github.com/expressjs/body-parser) -
--   [Firebase](https://github.com/unsplash/unsplash-js) -
+-   [React](https://expressjs.com/) - A JavaScript library for building user interfaces
+-   [Redux-Firebase](https://github.com/prescottprue/react-redux-firebase) - Redux bindings for Firebase. Includes React Hooks and Higher Order Components.
 
 ## Try
 
@@ -42,4 +41,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 -   Hat tip to anyone whose code was used
 -   Inspiration from TraversyMedia React crash course
--   Inspiration from React Front To Back, on Udemy by TraversyMedia
+-   Inspiration from "React Front To Back", on Udemy by TraversyMedia
