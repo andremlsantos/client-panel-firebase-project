@@ -36,6 +36,7 @@ class AddClient extends Component {
     };
 
     render() {
+        const { disableBalanceOnAdd } = this.props.settings;
         const { firstName, lastName, email, phone, balance } = this.state;
 
         return (
@@ -107,6 +108,7 @@ class AddClient extends Component {
                                     name="balance"
                                     onChange={this.onChange}
                                     value={balance}
+                                    disabled={disableBalanceOnAdd}
                                 />
                             </div>
 
@@ -125,6 +127,12 @@ class AddClient extends Component {
 
 AddClient.propTypes = {
     firestore: PropTypes.object.isRequired,
+    settings: PropTypes.object.isRequired,
 };
 
-export default firestoreConnect()(AddClient);
+export default compose(
+    firestoreConnect(),
+    connect((state, props) => ({
+        settings: state.settings,
+    }))
+)(AddClient);
