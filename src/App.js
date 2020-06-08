@@ -10,6 +10,7 @@ import "./App.css";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
+import Settings from "./components/settings/Settings";
 import {
     UserIsAuthenticated,
     UserIsNotAuthenticated,
@@ -50,6 +51,11 @@ function App() {
                                     exact
                                     path="/login"
                                     component={UserIsNotAuthenticated(Login)}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/settings"
+                                    component={UserIsAuthenticated(Settings)}
                                 ></Route>
                             </Switch>
                         </div>
