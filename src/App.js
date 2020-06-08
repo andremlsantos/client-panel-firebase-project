@@ -9,6 +9,7 @@ import { store, rrfProps } from "./store";
 import "./App.css";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
+import Login from "./components/auth/Login";
 
 function App() {
     return (
@@ -38,6 +39,11 @@ function App() {
                                     exact
                                     path="/client/edit/:id"
                                     component={EditClient}
+                                ></Route>
+                                <Route
+                                    exact
+                                    path="/login"
+                                    component={Login}
                                 ></Route>
                             </Switch>
                         </div>
